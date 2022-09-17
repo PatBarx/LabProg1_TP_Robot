@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UML_Practico1_robot">
+  <ClassDiagramComponents>
+    <Class name="Hombre" package="" visibility="public" xPosition="23.0" yPosition="218.0">
+      <Fields>
+        <Field name="nombreID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getYset" returnType="void" visibility="public"/>
+        <Method name="jugarConRobot" returnType="void" visibility="public">
+          <Argument type="Robot" name="robot"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Robot" package="" visibility="public" xPosition="324.0" yPosition="14.0">
+      <Fields>
+        <Field name="bateria" type="Bateria" visibility="private"/>
+        <Field name="activo" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Bateria" name="bateria"/>
+          <Argument type="boolean" name="activo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="avanzar" returnType="int" visibility="public">
+          <Argument type="int" name="pasos"/>
+        </Method>
+        <Method name="retroceder" returnType="int" visibility="public">
+          <Argument type="int" name="pasos"/>
+        </Method>
+        <Method name="dormir" returnType="void" visibility="public"/>
+        <Method name="despertar" returnType="void" visibility="public"/>
+        <Method name="recargar" returnType="void" visibility="public"/>
+        <Method name="llenarBateria" returnType="boolean" visibility="public"/>
+        <Method name="vaciarBateria" returnType="boolean" visibility="public"/>
+        <Method name="energiaActual" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Bateria" package="" visibility="public" xPosition="324.0" yPosition="431.0">
+      <Fields>
+        <Field name="carga" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getYset" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TestJuego" package="" visibility="public" xPosition="6.0" yPosition="14.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="Usa un" source="Hombre" target="Robot" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="Usa" source="TestJuego" target="Hombre" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Robot" target="Bateria" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="TestJuego" target="Robot" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
