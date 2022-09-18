@@ -21,16 +21,16 @@ public class Hombre {
     
 
     public void jugarConRobot(Robot robot) {
+        robot.despertar();
+        System.out.println("Iniciando... \nEstado activo: " + robot.isActivo() + "\n- - - - - - - - - - - - - -");
         if (robot.isActivo() && robot.energiaActual() > 52) {  //1º energia y estado..check 
             robot.avanzar(500);                 // --> 2º avanzar
             System.out.println("Avanzando... 500pasos");
             robot.retroceder(20);                 // --> 2º retroceder
             System.out.println("Retroceso... 20pasos");
             System.out.println("Carga de la bateria: " + robot.energiaActual()); //3º decir energia
-        } /*else {
-            System.out.println("-shhh!! zzzZZZ..\tEstado activo: " + robot.isActivo()
-                    + "\n-Carga de la bateria: " + robot.energiaActual());     //2º si duerme avisar-
-        }*/
+        }            
         robot.dormir();        
+        System.out.println("Dulces Sueños... zzZZZ \nEstado activo: " + robot.isActivo() + "\n- - - - - - - - - - - - - -");
     } 
 }
